@@ -22,4 +22,16 @@
         android:name="com.ukmi.iqmsoluction.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_cad_subject"
+        android:name="com.ukmi.iqmsoluction.ui.subject.CadSubjectFragment"
+        android:label="@string/title_cad_subject"
+        tools:layout="@layout/fragment_cad_subject" />
+
+    <fragment
+        android:id="@+id/navigation_cad_question"
+        android:name="com.ukmi.iqmsoluction.ui.question.CadQuestionFragment"
+        android:label="@string/title_cad_question"
+        tools:layout="@layout/fragment_cad_question" />
 </navigation>

@@ -6,4 +6,11 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_cad_subject">Cad. Subject</string>
+    <string name="title_cad_question">Cad. Question</string>
+
+    <string-array name="list_subject"> 
+        <item>Matemática</item> 
+        <item>Inglês</item> 
+        <item>Português</item> 
+    </string-array>
 </resources>
