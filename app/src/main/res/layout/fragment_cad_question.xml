@@ -8,6 +8,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginRight="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
         android:orientation="vertical">
 
         <TextView
@@ -17,7 +21,7 @@
             android:text="@string/question" />
 
         <EditText
-            android:id="@+id/editTextText3"
+            android:id="@+id/etQuestion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -31,7 +35,7 @@
             android:text="@string/answer" />
 
         <EditText
-            android:id="@+id/editTextText4"
+            android:id="@+id/etAnswer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -45,10 +49,20 @@
             android:text="@string/subjects" />
 
         <Spinner
-            android:id="@+id/spinner"
+            android:id="@+id/spSubject"
             android:entries="@array/list_subject"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="490dp" />
+
+        <Button
+            android:id="@+id/btSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save" />
     </LinearLayout>
 
 </FrameLayout>
