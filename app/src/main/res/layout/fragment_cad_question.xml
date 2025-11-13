@@ -56,7 +56,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="490dp" />
+            android:layout_height="450dp" />
 
         <Button
             android:id="@+id/btSave"
