@@ -7,20 +7,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.ukmi.iqmsoluction.ui.question.placeholder.PlaceholderContent.PlaceholderItem;
 import com.ukmi.iqmsoluction.databinding.FragmentConQuestionBinding;
+import com.ukmi.iqmsoluction.model.Question;
 
 import java.util.List;
 
 /**
- * {@link RecyclerView.Adapter} that can display a {@link PlaceholderItem}.
+ * {@link RecyclerView.Adapter} that can display a {@link Question}.
  * TODO: Replace the implementation with code for your data type.
  */
 public class QuestionRecyclerViewAdapter extends RecyclerView.Adapter<QuestionRecyclerViewAdapter.ViewHolder> {
 
-    private final List<PlaceholderItem> mValues;
+    private final List<Question> mValues;
 
-    public QuestionRecyclerViewAdapter(List<PlaceholderItem> items) {
+    public QuestionRecyclerViewAdapter(List<Question> items) {
         mValues = items;
     }
 
@@ -34,8 +34,8 @@ public class QuestionRecyclerViewAdapter extends RecyclerView.Adapter<QuestionRe
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        holder.mIdView.setText(mValues.get(position).getStatement());
+        holder.mContentView.setText(mValues.get(position).getAnswer());
     }
 
     @Override
@@ -46,7 +46,7 @@ public class QuestionRecyclerViewAdapter extends RecyclerView.Adapter<QuestionRe
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final TextView mIdView;
         public final TextView mContentView;
-        public PlaceholderItem mItem;
+        public Question mItem;
 
         public ViewHolder(FragmentConQuestionBinding binding) {
             super(binding.getRoot());

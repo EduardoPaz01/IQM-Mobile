@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace = "com.ukmi.iqmsoluction"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.ukmi.iqmsoluction"

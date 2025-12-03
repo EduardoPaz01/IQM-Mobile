@@ -11,6 +11,7 @@
     <string name="answer">Answer:</string>
     <string name="subjects">Subjects:</string>
     <string name="name">Name:</string>
+    <string name="title_con_question">con. question</string>
 
     <string-array name="list_subject"> 
         <item>Matemática</item> 

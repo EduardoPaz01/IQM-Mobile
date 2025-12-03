@@ -12,13 +12,32 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
 import com.ukmi.iqmsoluction.R;
+import com.ukmi.iqmsoluction.model.Question;
 import com.ukmi.iqmsoluction.ui.question.placeholder.PlaceholderContent;
+
+import java.util.ArrayList;
 
 /**
  * A fragment representing a list of Items.
  */
-public class conQuestionFragment extends Fragment {
+public class conQuestionFragment extends Fragment
+        implements Response.ErrorListener, Response.Listener {
+
+    //Lista que vai armazenar os objetos que retornam do Web Service
+    private ArrayList<Question> usuarios;
+    //Fila de requests da biblioteca Volley
+    private RequestQueue requestQueue;
+    //Objeto da biblioteca Volley que faz o request para o Web Service
+    private JsonArrayRequest jsonArrayReq;
+    //Objeto view que representa a tela utilizado em diversos metodos
+    private View view;
+
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -54,19 +73,24 @@ public class conQuestionFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_con_question_list, container, false);
+        this.view = inflater.inflate(R.layout.fragment_con_question_list, container, false);
 
-        // Set the adapter
-        if (view instanceof RecyclerView) {
-            Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
-            if (mColumnCount <= 1) {
-                recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            } else {
-                recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
-            }
-            recyclerView.setAdapter(new QuestionRecyclerViewAdapter(PlaceholderContent.ITEMS));
-        }
-        return view;
+        //instanciando a fila de requests - caso o objeto seja o view
+        this.requestQueue = Volley.newRequestQueue(view.getContext());
+        //inicializando a fila de requests do SO
+        this.requestQueue.start();
+
+
+        return this.view;
+    }
+
+    @Override
+    public void onErrorResponse(VolleyError error) {
+
+    }
+
+    @Override
+    public void onResponse(Object response) {
+
     }
 }

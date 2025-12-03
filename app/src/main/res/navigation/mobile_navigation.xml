@@ -34,4 +34,10 @@
         android:name="com.ukmi.iqmsoluction.ui.question.CadQuestionFragment"
         android:label="@string/title_cad_question"
         tools:layout="@layout/fragment_cad_question" />
+
+    <fragment
+        android:id="@+id/navigation_con_question"
+        android:name="com.ukmi.iqmsoluction.ui.question.conQuestionFragment"
+        android:label="@string/title_con_question"
+        tools:layout="@layout/fragment_con_question_list" />
 </navigation>

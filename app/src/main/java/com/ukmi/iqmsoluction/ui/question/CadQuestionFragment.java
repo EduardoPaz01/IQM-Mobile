@@ -55,9 +55,9 @@
                                         JSONObject jo = response.getJSONObject(pos);
                                         Subject subject = new Subject();
                                         subject.setIdSubject(jo.getInt("idsubject"));
-                                        subject.setName(jo.getString("name"));
-                                        subject.setTopic(jo.getString("topic"));
-                                        subject.setDescription(jo.getString("description"));
+                                        subject.setName(jo.getString("sName"));
+                                        subject.setTopic(jo.getString("sTopic"));
+                                        subject.setDescription(jo.getString("sDescription"));
                                         listSubjects.add(pos, subject);
                                     }
                                     ArrayAdapter<Subject> adapter = new ArrayAdapter<>(
