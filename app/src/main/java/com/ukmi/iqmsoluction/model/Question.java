@@ -9,35 +9,35 @@ import java.util.Objects;
 
 public class Question {
     private int idQuestion;
-    private boolean black_list;
-    private String statement;
+    private int black_list;
+    private String question;
     private String answer;
     private String topic;
     private String tip;
     private String options;
-    private String subject_id;
+    private int subject_id;
     
     public Question(){
         this.idQuestion = 0;
-        this.black_list = false;
-        this.statement = "";
+        this.black_list = 0;
+        this.question = "";
         this.answer = "";
         this.topic = "";
         this.tip = "";
         this.options = "";
-        this.subject_id = "";
+        this.subject_id = -1;
     }
     
     public Question(JSONObject jp){
         try {
             this.setIdQuestion(jp.getInt("idquestion"));
-            this.setStatement(jp.getString("statement"));
-            this.setAnswer(jp.getString("answer"));
-            this.setTopic(jp.getString("topic"));
-            this.setTip(jp.getString("tip"));
-            this.setOptions(jp.getString("options"));
-            this.setBlack_list(jp.getBoolean("black-list"));
-            this.setSubject_id(jp.getString("idsubject"));
+            this.setStatement(jp.getString("nStatement"));
+            this.setAnswer(jp.getString("nAnswer"));
+            this.setTopic(jp.getString("nTopic"));
+            this.setTip(jp.getString("nTip"));
+            this.setOptions(jp.getString("nOptions"));
+            this.setBlack_list(jp.getInt("nBlackliist"));
+            this.setSubject_id(jp.getInt("idsubject"));
         } catch (Exception e){
             Log.e("error:", Objects.requireNonNull(e.getMessage()));
         }
@@ -47,12 +47,12 @@ public class Question {
         JSONObject json = new JSONObject();
         try {
             json.put("idquestion", this.getIdQuestion());
-            json.put("statement", this.getStatement());
-            json.put("answer", this.getAnswer());
-            json.put("topic", this.getTopic());
-            json.put("tip", this.getTip());
-            json.put("options", this.getOptions());
-            json.put("black-list", this.isBlack_list());
+            json.put("nStatement", this.getStatement());
+            json.put("nAnswer", this.getAnswer());
+            json.put("nTopic", this.getTopic());
+            json.put("nTip", this.getTip());
+            json.put("nOptions", this.getOptions());
+            json.put("nBlackliist", this.isBlack_list());
             json.put("idsubject", this.getSubject_id());
 
         } catch (JSONException e) {
@@ -70,12 +70,12 @@ public class Question {
     }
 
     public String getStatement() {
-        return statement;
+        return question;
     }
 
-    public void setStatement(String statement) throws Exception{
-        if(statement.length() > 5){
-            this.statement = statement;
+    public void setStatement(String question) throws Exception{
+        if(question.length() > 5){
+            this.question = question;
         }
         else{
             throw new Exception("Statement too short");
@@ -83,11 +83,11 @@ public class Question {
 
     }
 
-    public boolean isBlack_list() {
+    public int isBlack_list() {
         return black_list;
     }
 
-    public void setBlack_list(boolean black_list) {
+    public void setBlack_list(int black_list) {
         this.black_list = black_list;
     }
 
@@ -123,11 +123,11 @@ public class Question {
         this.options = options;
     }
 
-    public String getSubject_id() {
+    public int getSubject_id() {
         return subject_id;
     }
 
-    public void setSubject_id(String subject_id) {
+    public void setSubject_id(int subject_id) {
         this.subject_id = subject_id;
     }
 }
